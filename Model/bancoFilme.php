@@ -6,3 +6,32 @@ function insereFilme($conexao, $filme, $genero, $sinopse, $ano, $capa, $url){
     return $resultado;
 
 };
+
+function visuNomeFilme($conexao, $filme){
+
+    $query = "Select * from tbfilme where nomefil like '%{$filme}%'";
+    $resultado = mysqli_query ($conexao, $query);
+    $infoFilme = mysqli_fetch_assoc($resultado);
+    
+    $_SESSION["infoFilme"] = array();
+    
+    $_SESSION["infoFilme"] = $infoFilme;
+
+    return $resultado;
+
+}
+
+function alterFilme($conexao, $codfil, $filme, $genero, $sinopse, $ano, $capa, $url){
+
+    $query = "update tbfilme set nomefil='{$filme}', generofil='{$genero}', sipnosefil='{$sinopse}', anofil='{$ano}', capafil='{$capa}', urlfil='{$url}' where codfil='{$codfil}'";
+    $resultado = mysqli_query ($conexao, $query);
+    return $resultado;
+}
+
+function deleteFilme($conexao, $codfil){
+
+    $query = "delete from tbfilme where codfil='{$codfil}'";
+    $resultado = mysqli_query ($conexao, $query);
+    return $resultado;
+
+}

@@ -26,7 +26,7 @@
                             Funcionário
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="cadastroFuncionario.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="#">Buscar</a></li>
                             <li><a class="dropdown-item" href="#">Alterar</a></li>
                         </ul>
@@ -36,7 +36,7 @@
                             Usuário
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="cadastroUsuario.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="#">Buscar</a></li>
                             <li><a class="dropdown-item" href="#">Alterar</a></li>
                         </ul>

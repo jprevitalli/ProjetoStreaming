@@ -9,7 +9,7 @@ include("header.php");
 
         <div class="col-12">
             <label for="inputLogin" class="form-label">E-mail</label>
-            <input type="e-mail" name="login" class="form-control" id="inputLogin">
+            <input type="e-mail" name="e-mail" class="form-control" id="inputLogin">
         </div>
 
         <div class="col-12">

@@ -5,7 +5,7 @@ include_once("../Model/conexao.php");
 
 
 
-$login = isset($_POST["login"])?strtolower($_POST["login"]):"";
+$login = isset($_POST["e-mail"])?strtolower($_POST["e-mail"]):"";
 $senha = $_POST["senha"];
 
 if(insereUsuario($conexao, $login, $senha)){

@@ -1,3 +1,7 @@
+<?php
+include_once("../Model/bancoUsuario.php");
+liberaAcesso();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,40 +32,49 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="cadastroFuncionario.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="#">Buscar</a></li>
-                            <li><a class="dropdown-item" href="#">Alterar</a></li>
+                            
                         </ul>
-                        </li>
-                        <li class="nav-item dropdown">
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Usuário
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="cadastroUsuario.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="#">Buscar</a></li>
-                            <li><a class="dropdown-item" href="#">Alterar</a></li>
+                            
                         </ul>
-                        </li>
-                        <li class="nav-item dropdown">
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Filme
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="../View/cadastroFilme.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="../View/visualizarFilme.php">Buscar</a></li>
-                            <li><a class="dropdown-item" href="#">Alterar</a></li>
+                            
                         </ul>
-                        </li>
-                        <li class="nav-item dropdown">
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Série
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="cadastroSerie.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="#">Buscar</a></li>
-                            <li><a class="dropdown-item" href="#">Alterar</a></li>
+                            
                         </ul>
                     </li>
+                    <li class="nav-item dropdown"><a class="nav-link" href="#"> Olá, <?php echo ($_SESSION["funcionario"]); ?></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../Controller/logout.php">
+                            Sair
+                        </a>
+                    </li>
+
                 </ul>
+
             </div>
         </div>
     </nav>

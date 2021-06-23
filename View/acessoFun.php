@@ -11,7 +11,13 @@
 
 <body>
     <div class="container">
+
         <form id="formlogin" action="../Controller/logarFun.php" method="POST">
+            <?php
+            session_start();
+            $msg = isset($_SESSION["msg"]) ? $_SESSION["msg"] : "";
+            echo ($msg);
+            ?>
             <div class="row mb-3">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">

@@ -45,12 +45,17 @@ function buscarAcesso($conexao, $email, $senha)
             $_SESSION["email"] = $linha["loginusu"];
             $_SESSION["codusu"] = $linha["codusu"];
 
+            $_SESSION["funcionario"] = buscarNomeUsuario($conexao, $linha["codusu"]);
+            
+
+
             return $linha["loginusu"];
         } else {
 
-            return $linha["loginusu"];
+            return $linha["Senha não confere"];
         }
     }
+    return "E-mail não cadastrado!";
 }
 
 function trocarsenhausuario($conexao, $email, $novasenha, $pin)
@@ -75,4 +80,32 @@ function trocarsenhausuario($conexao, $email, $novasenha, $pin)
         $resultado = "erro";
         return $resultado;
     }
+}
+
+function logout(){
+   return session_destroy();
+}
+
+function liberaAcesso(){
+
+    $email = isset($_SESSION["email"]);
+
+    if(!$email){
+        $_SESSION["msg"] = "<div class='alert alert-danger' role='alert'>Faça login para ter acesso ao sistema!</div>";
+        header("Location: ../View/acessoFun.php");
+        die();
+    }
+
+    
+}
+
+function buscarNomeUsuario($conexao, $codusu){
+    $query = "Select * from tbfuncionario where codusuFK = '{$codusu}'";
+    $resultado = mysqli_query($conexao,$query);
+
+    $resulArray = mysqli_fetch_assoc($resultado);
+    $nome = $resulArray["nomefun"];
+
+    return $nome;
+
 }

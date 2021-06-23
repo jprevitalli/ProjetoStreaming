@@ -13,8 +13,15 @@
 
 <h1 class="text-center">Esqueceu a senha?</h1>
 <h3 class="text-center">Preencha corretamente as informações abaixo:</h3>
-<div class="container">    
+<div class="container">
+<?php
+    session_start();
+    $msg = isset($_SESSION["msg"])?$_SESSION["msg"]:""; 
+?>    
     <form id="formEsqueceuSenha" action="../Controller/trocarSenha.php" method="POST">
+    <?=
+    $msg
+    ?>
         <div class="row mb-3">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
@@ -37,6 +44,11 @@
         <button type="submit" class="btn btn-primary">Trocar a Senha</button>
         <a class="btn btn-danger" href="acessoFun.php">Voltar</a>
     </form>
+
+    <?php
+    $_SESSION["msg"] = "";
+    ?>
+
     </div>
 
 </body>

@@ -1,17 +1,21 @@
 <?php
 
+session_start();
 include_once("../Model/conexao.php");
 include_once("../Model/bancoUsuario.php");
 
 $email = $_POST ["email"]; 
 $pin = $_POST ["pin"];
-$novasenha = $_POST ["novasenha"];
-$info = trocarsenhausuario($conexao, $email,$novasenha,$pin);
+//olhar aqui abaixo pode ser o erro
+$novasenha = $_POST ["senha"];
+$info = trocarsenhausuario($conexao,$email,$novasenha,$pin);
 
 if($info === "erro"){
-    header("Location: ../View/acessoFun.php");
+    $_SESSION["msg"] = "<div class='alert alert-danger' role='alert'>Os dados não conferem... Tente novamente!</div>";
+    header("Location: ../View/formEsqueciSenha.php");
 }else{
-    header("Location: ../View/areaFuncionario.php");
+    $_SESSION["msg"] = "<div class='alert alert-success' role='alert'>Sua senha foi alterada com sucesso!</div>";
+    header("Location: ../View/acessoFun.php");
 }
 
 ?>

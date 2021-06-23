@@ -30,7 +30,7 @@ liberaAcesso();
                             Funcionário
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="cadastroFuncionario.php">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="../View/cadastroFuncionario.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="#">Buscar</a></li>
                             
                         </ul>
@@ -40,7 +40,7 @@ liberaAcesso();
                             Usuário
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="cadastroUsuario.php">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="../View/cadastroUsuario.php">Cadastrar</a></li>
                             <li><a class="dropdown-item" href="#">Buscar</a></li>
                             
                         </ul>
@@ -60,8 +60,8 @@ liberaAcesso();
                             Série
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="cadastroSerie.php">Cadastrar</a></li>
-                            <li><a class="dropdown-item" href="#">Buscar</a></li>
+                            <li><a class="dropdown-item" href="../View/cadastroSerie.php">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="../View/visualizarSerie.php">Buscar</a></li>
                             
                         </ul>
                     </li>

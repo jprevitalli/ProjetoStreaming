@@ -2,7 +2,7 @@
 include_once("../Model/bancoUsuario.php");
 liberaAcesso();
 include_once("header.php");
-include_once("../Model/bancoFilme.php");
+include_once("../Model/bancoSerie.php");
 include_once("../Model/conexao.php");
 
 ?>
@@ -12,18 +12,18 @@ include_once("../Model/conexao.php");
     <form action="" method="POST" class="row g-3">
 
         <div class="col-12">
-            <label class="form-label">Digite o Nome do filme:</label>
-            <input type="text" required name="filme" class="form-control">
+            <label class="form-label">Digite o Nome da Série:</label>
+            <input type="text" required name="série" class="form-control">
         </div>
 
         <div class="col-12">
-            <label class="form-label">Escolha o Gênero do filme:</label>
-            <input type="text" required name="generoFilme" class="form-control">
+            <label class="form-label">Escolha o Gênero da Série:</label>
+            <input type="text" required name="generoSerie" class="form-control">
         </div>
         
         <div class="col-12">
-            <label class="form-label">Digite o Ano do filme:</label>
-            <input type="number" min="1900" max="2050" required name="anoFilme" class="form-control">
+            <label class="form-label">Digite o Ano da série:</label>
+            <input type="number" min="1900" max="2050" required name="anoSerie" class="form-control">
         </div>
 
         <div class="col-12">
@@ -36,7 +36,7 @@ include_once("../Model/conexao.php");
         <thead>
             <tr>
                 <th scope="col">Código</th>
-                <th scope="col">Filme</th>
+                <th scope="col">Série</th>
                 <th scope="col">Gênero</th>
                 <th scope="col">Ano</th>
                 <th scope="col">Capa</th>
@@ -47,23 +47,23 @@ include_once("../Model/conexao.php");
         </thead>
         <tbody>
             <?php
-            $filme = isset($_POST["filme"]) ? $_POST["filme"] : "";
-            $dado = visuNomeFilme($conexao, $filme);
+            $serie = isset($_POST["serie"]) ? $_POST["serie"] : "";
+            $dado = visuNomeSerie($conexao, $serie);
             foreach ($dado as $dados) :
 
             ?>
                 <tr>
-                    <th scope="row"><?= $dados["codfil"] ?></th>
-                    <td><?= $dados["nomefil"] ?></td>
-                    <td><?= $dados["generofil"] ?></td>
-                    <td><?= $dados["anofil"] ?></td>
-                    <td><img src="<?= $dados["capafil"] ?>" width="50"></td>
+                    <th scope="row"><?= $dados["codserie"] ?></th>
+                    <td><?= $dados["nomeserie"] ?></td>
+                    <td><?= $dados["generoserie"] ?></td>
+                    <td><?= $dados["anoserie"] ?></td>
+                    <td><img src="<?= $dados["capaserie"] ?>" width="100"></td>
                     <td>
-                        <a class="btn btn-primary" href="alterarFilme.php?codigo=<?= $dados["codfil"] ?>">Alterar</a>
+                        <a class="btn btn-primary" href="alterarSerie.php?codigo=<?= $dados["codserie"] ?>">Alterar</a>
                     </td>
                     <td>
-                        <form action="../Controller/deleteFilme.php" method="Post">
-                            <input type="hidden" name="codfil" value="<?= $dados["codfil"] ?>">
+                        <form action="../Controller/deleteSerie.php" method="Post">
+                            <input type="hidden" name="codserie" value="<?= $dados["codserie"] ?>">
                             <button type="submit" class="btn btn-danger">Deletar</button>
                         </form>
                     </td>

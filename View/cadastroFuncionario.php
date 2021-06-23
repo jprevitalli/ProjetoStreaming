@@ -9,11 +9,11 @@ include("header.php");
 <?php
 
 
-$email = isset($_SESSION["emailusubusca"]) ? $_SESSION["emailusubusca"] : "";
+$email = isset($_SESSION["emailusubusca"]) ? $_SESSION["emailusubusca"] : "/";
 $codusu = isset($_SESSION["codusubusca"]) ? $_SESSION["codusubusca"] : "";
 
 
-if ($email) {
+if ($email !="/") {
     $aparenciaForm2 = "visible";
     $aparenciaForm1 = "invisible";
 } else {
@@ -30,7 +30,7 @@ if ($email) {
 
         <div class="col-12">
             <label class="form-label">Digite um e-mail de usuário válido:</label>
-            <input type="e-mail" name="email" class="form-control">
+            <input type="email" required name="email" class="form-control">
         </div>
 
         <div class="col-12">

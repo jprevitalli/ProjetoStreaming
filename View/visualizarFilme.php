@@ -10,11 +10,19 @@ include_once("../Model/conexao.php");
 
     <form action="" method="POST" class="row g-3">
 
-
+        <div class="col-12">
+            <label class="form-label">Digite o Nome do filme:</label>
+            <input type="text" required name="filme" class="form-control">
+        </div>
 
         <div class="col-12">
-            <label class="form-label">Digite o nome do filme:</label>
+            <label class="form-label">Escolha o Gênero do filme:</label>
             <input type="text" required name="filme" class="form-control">
+        </div>
+        
+        <div class="col-12">
+            <label class="form-label">Digite o Ano do filme:</label>
+            <input type="number" min="1900" max="2050" required name="filme" class="form-control">
         </div>
 
         <div class="col-12">

@@ -8,12 +8,12 @@ extract($_REQUEST, EXTR_OVERWRITE);
 
 if(deleteSerie($conexao, $codserie)){
      
-    
-    header("Location: ../View/visualizarSerie.php?re=1;javascript:alert('oi')");
+    echo("<div class='alert alert-success' role='alert'>A série foi excluída</div>");
     
 
 }else{
-    echo("<p>A série não foi excluída</p>");
+    
+    echo("<div class='alert alert-danger' role='alert'>A série não foi excluída</div>");    
 }
 
 

@@ -7,12 +7,11 @@ include_once("../Model/conexao.php");
 extract($_REQUEST, EXTR_OVERWRITE);
 
 if(deleteFilme($conexao, $codfil)){
-         
-    header("Location: ../View/visualizarFilme.php?re=1;javascript:alert('oi')");
+     
+    echo("<div class='alert alert-success' role='alert'>O filme foi excluído</div>");
     
-
 }else{
-    echo("<p>O filme não foi excluído</p>");
+    echo("<div class='alert alert-danger' role='alert'>O filme não foi excluído</div>");
 }
 
 

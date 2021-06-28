@@ -57,7 +57,7 @@ include_once("../Model/conexao.php");
                     <td><?= $dados["nomefil"] ?></td>
                     <td><?= $dados["generofil"] ?></td>
                     <td><?= $dados["anofil"] ?></td>
-                    <td><img src="<?= $dados["capafil"] ?>" width="50"></td>
+                    <td><img src="<?= $dados["capafil"] ?>" width="70"></td>
                     <td>
                         <a class="btn btn-primary" href="alterarFilme.php?codigo=<?= $dados["codfil"] ?>">Alterar</a>
                     </td>

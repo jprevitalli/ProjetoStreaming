@@ -109,3 +109,38 @@ function buscarNomeUsuario($conexao, $codusu){
     return $nome;
 
 }
+
+
+function visuEmailUsuario($conexao, $usuario){
+
+    $query = "Select * from tbusuario where loginusu like '%{$usuario}%'";
+    $resultado = mysqli_query ($conexao, $query);
+    
+    
+    return $resultado;
+
+}
+
+function visuCodigoUsuario($conexao, $codigo)
+
+{
+
+    $query = "Select * from tbusuario where codusu={$codigo}";
+
+    $resultado = mysqli_query($conexao, $query);
+
+
+
+    return $resultado;
+
+}
+
+
+function deleteUsuario($conexao, $codusu){
+
+    $query = "delete from tbusuario where codusu='{$codusu}'";
+    $resultado = mysqli_query ($conexao, $query);
+    return $resultado;
+
+}
+

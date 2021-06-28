@@ -57,7 +57,7 @@ include_once("../Model/conexao.php");
                     <td><?= $dados["nomeserie"] ?></td>
                     <td><?= $dados["generoserie"] ?></td>
                     <td><?= $dados["anoserie"] ?></td>
-                    <td><img src="<?= $dados["capaserie"] ?>" width="100"></td>
+                    <td><img src="<?= $dados["capaserie"] ?>" width="70"></td>
                     <td>
                         <a class="btn btn-primary" href="alterarSerie.php?codigo=<?= $dados["codserie"] ?>">Alterar</a>
                     </td>

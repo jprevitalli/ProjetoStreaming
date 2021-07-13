@@ -8,7 +8,7 @@ include('header.php');
 
 <div class="container">
 
-  <form action="../Controller/inserirSerie.php" method="GET" class="row g-3">
+  <form action="../Controller/inserirSerie.php" method="POST" class="row g-3">
 
     <div class="col-md-8">
       <label for="inputSerie" class="form-label">Série</label>

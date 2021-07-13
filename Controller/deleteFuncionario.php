@@ -8,6 +8,9 @@ extract($_REQUEST, EXTR_OVERWRITE);
 
 if(deleteFuncionario($conexao, $codfun)){
           
+    //header("Location: ../view/visualizarFuncionario.php?re=1;javascript:alert('oi')");
+
+
      echo("<div class='alert alert-success' role='alert'>O funcionário foi excluído</div>");
     
 }else{

@@ -66,7 +66,7 @@ liberaAcesso();
                             
                         </ul>
                     </li>
-                    <li class="nav-item dropdown"><a class="nav-link" href="#"> Olá, <?php echo ($_SESSION["funcionario"]); ?></a>
+                    <li class="nav-item dropdown"><a class="nav-link" href="#"> Olá, <?php echo ($_SESSION["email"]); ?></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="../Controller/logout.php">

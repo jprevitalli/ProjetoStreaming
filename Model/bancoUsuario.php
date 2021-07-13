@@ -42,11 +42,12 @@ function buscarAcesso($conexao, $email, $senha)
     if (mysqli_num_rows($resultado) > 0) {
         $linha = mysqli_fetch_assoc($resultado);
         if (password_verify($senha, $linha["senhausu"])) {
+
             $_SESSION["email"] = $linha["loginusu"];
             $_SESSION["codusu"] = $linha["codusu"];
 
-            $_SESSION["funcionario"] = buscarNomeUsuario($conexao, $linha["codusu"]);
-            
+            $_SESSION["retorno"] = buscarNivelUsuario($conexao, $linha["codusu"]);
+
 
 
             return $linha["loginusu"];
@@ -82,43 +83,64 @@ function trocarsenhausuario($conexao, $email, $novasenha, $pin)
     }
 }
 
-function logout(){
-   return session_destroy();
+function logout()
+{
+    return session_destroy();
 }
 
-function liberaAcesso(){
+function liberaAcesso()
+{
 
     $email = isset($_SESSION["email"]);
 
-    if(!$email){
+    if (!$email) {
         $_SESSION["msg"] = "<div class='alert alert-danger' role='alert'>Faça login para ter acesso ao sistema!</div>";
         header("Location: ../View/acessoFun.php");
         die();
     }
+}
 
+function buscarNivelUsuario($conexao, $codusu)
+{
+
+    $query = "Select * from tbfuncionario where codusuFK = '{$codusu}'";
+    $resultadofun = mysqli_query($conexao, $query);
+    $resulArrayfun = mysqli_fetch_assoc($resultadofun);
+
+    $nomefun = $resulArrayfun["nomefun"];
+
+    $query = "Select * from tbgrupo where codusuFK = '{$codusu}'";
+    $resultadogp = mysqli_query($conexao, $query);
+    $resulArraygp = mysqli_fetch_assoc($resultadogp);
+
+    $codigogp = $resulArraygp["codcliFK"];
+   
+
+    if (!$nomefun && !$codigogp) {
+        $n = "0";
+        return $n;
+    } elseif (!$nomefun) {
+        $n = "1";
+        return $n;
+    } elseif (!$codigogp) {
+        $n = "3";
+        return $nomefun;
+    } else {
+        $n = "2";
+        return $n;
+    }
     
 }
 
-function buscarNomeUsuario($conexao, $codusu){
-    $query = "Select * from tbfuncionario where codusuFK = '{$codusu}'";
-    $resultado = mysqli_query($conexao,$query);
 
-    $resulArray = mysqli_fetch_assoc($resultado);
-    $nome = $resulArray["nomefun"];
-
-    return $nome;
-
-}
-
-
-function visuEmailUsuario($conexao, $usuario){
+function visuEmailUsuario($conexao, $usuario)
+{
 
     $query = "Select * from tbusuario where loginusu like '%{$usuario}%'";
-    $resultado = mysqli_query ($conexao, $query);
-    
-    
-    return $resultado;
+    $resultado = mysqli_query($conexao, $query);
 
+
+    return $resultado;
 }
 
 function visuCodigoUsuario($conexao, $codigo)
@@ -132,15 +154,13 @@ function visuCodigoUsuario($conexao, $codigo)
 
 
     return $resultado;
-
 }
 
 
-function deleteUsuario($conexao, $codusu){
+function deleteUsuario($conexao, $codusu)
+{
 
     $query = "delete from tbusuario where codusu='{$codusu}'";
-    $resultado = mysqli_query ($conexao, $query);
+    $resultado = mysqli_query($conexao, $query);
     return $resultado;
-
 }
-
